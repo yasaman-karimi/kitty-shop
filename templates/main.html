@@ -1,0 +1,111 @@
+{% load django_bootstrap5%}
+
+<!doctype html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>kittyshop</title>
+    {% bootstrap_css %}
+  
+    <style>
+
+
+        a{
+        font-size: 15px;
+        }
+
+        a:hover{
+            transition: transform .6s ease;
+            transform: scale(1.1);
+            text-decoration: none;
+            letter-spacing: 0.5px;
+            font-weight: 700;
+            border: none;
+            color: white;
+            background: #FF0000 !important;
+                }
+        body{
+            background-color: #000000;
+
+        }
+        .hover_img{
+        transition: transform .5s ease;
+        }
+        .hover_img:hover{
+            transform: scale(1.05);
+        }
+        #popup_modal{
+        max-width: 1000px;
+        margin-top: 0px;
+        }
+
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand text-white" style="pointer-events: none;">Kittyshop</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="">Store</a>
+            </li>
+        </ul>
+        
+        
+        
+            
+        <form method="Post" action="{% url 'logout' %}">
+            {% csrf_token %}
+        <ul class="navbar-nav my-lg-0">
+            <li class="nav-item">
+            
+            {% if user.is_authenticated %}
+                
+           <p>Welcome{{user.username}}</p>
+                
+            <li class="nav-item ">
+                <a class="nav-link text-white" href="/logout">Logout</a>
+            </li>
+            
+           {% else %}
+        </form>
+            <li class="nav-item">
+                <a class="nav-link text-white m-10" href="/register">Signup</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" href="/login">Login</a>
+            </li>
+        </li>
+        {% endif %}
+        <li class="nav-item">
+            <a class="nav-link text-white" href="/products">Products</a>
+        </li>
+        </ul>
+    
+    </div>
+</nav>
+
+
+<div>
+{% block content %}
+
+
+{% endblock %}
+</div>
+<div class="container-fluid bg-dark mt-3">
+    <center><strong><p class="text-white mb-0  ml-4 py-3" style="font-size: 18px;"><i class="fas fa-copyright"></i>Kittyshop</p></strong></center>
+</div>
+ {% bootstrap_javascript %}
+<script>
+
+</script>
+</body>
+</html>

@@ -1,0 +1,209 @@
+{% extends "main.html" %}
+
+{% block content %}
+
+
+
+
+
+
+<div class="container my-5">
+    <h1 class="text-white mb-5">Product</h1>
+    <div class="row">
+        <div class="col-md-5 mb-2">
+
+            <div class="main-img">
+
+                <div class="col-md-3 ">
+                    <img class="w-100 rounded" src="{{object.image.url}}" width=190px alt="{{object.name}} ">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-7">
+        <div class="main-description px-2">
+            <div class="category text-bold text-white">
+                Category: Women
+            </div>
+            <div class="product-title text-bold my-3 text-white">
+                <h2>{{object.name}}</h2>
+                <p>average rate:{{object.rating}}</p>
+            </div>
+
+
+            <div class="price-area my-4">
+                <p class="old-price mb-1 text-white"><del>$50</del> <span class="old-price-discount text-danger">(20%
+                        off)</span></p>
+                <p class="new-price text-bold mb-1 text-white">Price: {{ object.price }}</p>
+                <p class="text-secondary mb-1">(Additional tax may apply on checkout)</p>
+
+            </div>
+
+
+            <div class="buttons d-flex my-5">
+                <div class="block">
+                    <a href="#" class="shadow btn custom-btn text-white border border-danger">Wishlist</a>
+                </div>
+                <div class="block">
+                    <button class="shadow btn custom-btn text-white">Add to cart</button>
+                </div>
+
+                <div class="block quantity">
+                    <input type="number" class="form-control" id="cart_quantity" value="1" min="0" max="5"
+                        placeholder="Enter email" name="cart_quantity">
+                </div>
+
+
+            </div>
+
+
+
+
+        </div>
+
+        <div class="product-details my-4">
+            <p class="details-title text-color mb-1 text-white pb-5 pt-2">{{object.description}}</p>
+            <div class="text-white">
+                <h3>Comments</h3>
+                {% for comment in comments%}
+                <div class="row col-md-5 my-5 mx-8">
+                    <div class="col-md-8 mx-5">
+                        <div class="card shadow-0 border bg-dark">
+                            <div class="card-body p-4">
+
+
+
+
+                                <div class="card mb-4">
+                                    <div class="card-body">
+                                        <p>{{comment.comment}}</p>
+
+                                        <div class="d-flex justify-content-between">
+                                            <div class="d-flex flex-row align-items-center">
+                                                <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(4).webp"
+                                                    alt="avatar" width="25" height="25" />
+                                                <p class="small mb-0 ms-2">{{comment.user}} ({{comment.rate}})</p>
+                                                {% if comment.is_verified_buyer %}
+                                                <span class="verified-buyer">✔️</span>
+                                                {% endif %}
+                                            </div>
+                                            <div class="d-flex flex-row align-items-center">
+                                                <p class="small text-muted mb-0">Upvote?</p>
+                                                <i class="far fa-thumbs-up mx-2 fa-xs text-black"
+                                                    style="margin-top: -0.16rem;"></i>
+                                                <p class="small text-muted mb-0">3</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p>
+<h4>
+
+</h4>
+
+
+</p>
+
+</div>
+</div>
+
+<div class="row questions bg-dark p-3 rounded">
+    <div class="col-md-1 icon">
+        <i class="fa-brands fa-rocketchat questions-icon"></i>
+    </div>
+    <div class="col-md-11 text-white">
+        Have a question about our products at E-Store? Feel free to contact our representatives
+        via live
+        chat or email.
+    </div>
+</div>
+
+<div class="delivery my-4">
+    <p class="font-weight-bold mb-0 text-white"><span><i class="fa-solid fa-truck "></i></span>
+        <b>Delivery done
+            in 3
+            days from date of purchase</b>
+    </p>
+    <p class="text-secondary">Order now to get this product delivery</p>
+</div>
+<div class="delivery-options my-4 text-white">
+    <p class="font-weight-bold mb-0"><span><i class="fa-solid fa-filter"></i></span> <b>Delivery
+            options</b>
+    </p>
+    <p class="text-secondary">View delivery options here</p>
+</div>
+
+
+</div>
+</div>
+</div>
+
+
+
+<div class="container similar-products my-4">
+    <hr>
+    <p class="display-5">Similar Products</p>
+
+    <div class="row">
+        <div class="col-md-3">
+            <div class="similar-product">
+                <img class="w-100" src="https://source.unsplash.com/gsKdPcIyeGg" alt="Preview">
+                <p class="title">Lovely black dress</p>
+                <p class="price">$100</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="similar-product">
+                <img class="w-100" src="https://source.unsplash.com/sg_gRhbYXhc" alt="Preview">
+                <p class="title">Lovely Dress with patterns</p>
+                <p class="price">$85</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="similar-product">
+                <img class="w-100" src="https://source.unsplash.com/gJZQcirK8aw" alt="Preview">
+                <p class="title">Lovely fashion dress</p>
+                <p class="price">$200</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="similar-product">
+                <img class="w-100" src="https://source.unsplash.com/qbB_Z2pXLEU" alt="Preview">
+                <p class="title">Lovely red dress</p>
+                <p class="price">$120</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+{% endblock %}
